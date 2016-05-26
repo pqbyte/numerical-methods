@@ -1,4 +1,4 @@
-% Secant
+% Secant method.
 
 f = @(x) (x-1)^2;
 
