@@ -14,10 +14,11 @@ disp('x               f(x)            absolute error')
 while err > TOL && iter < 100
   dx = -f(x1)*(x1-x0)/(f(x1)-f(x0));
   x0 = x1;
-  x1 = x1 + dx;
+  x1 = x1+dx;
   err = abs(x1-x0);
-  iter = iter + 1;
+  iter = iter+1;
   fprintf('%.12f\t%.12f\t%.12f\n', [x1, f(x1), err])
 end
 x = x1;
+
 disp(['Iterations: ' num2str(iter)])
