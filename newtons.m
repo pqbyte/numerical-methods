@@ -1,4 +1,4 @@
-% Newton-Raphsons method for function with 4 roots.
+% Newton-Raphsons method.
 
 f = @(x) (x-1)^2;
 fp = @(x) 2*(x-1);
