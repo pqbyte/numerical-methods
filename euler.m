@@ -9,7 +9,7 @@ n = (b-a)/h; % Intervals
 
 X = zeros(n+1, 1);
 Y = zeros(n+1, 1);
-X(1) = 0; % Starting x-value
+X(1) = a; % Starting x-value
 Y(1) = 5; % Starting y-value
 
 disp('   x               y')
