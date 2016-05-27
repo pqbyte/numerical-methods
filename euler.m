@@ -7,8 +7,8 @@ b = 3;       % Upper bound
 h = 1.5;     % Step size
 n = (b-a)/h; % Intervals
 
-X = zeros(n, 1);
-Y = zeros(n, 1);
+X = zeros(n+1, 1);
+Y = zeros(n+1, 1);
 X(1) = 0; % Starting x-value
 Y(1) = 5; % Starting y-value
 
