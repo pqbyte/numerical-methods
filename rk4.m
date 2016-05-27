@@ -2,15 +2,15 @@
 
 f = @(x,y) 3*exp(-x)-0.4*y;
 
-a = 0;
-b = 3;
-h = 1.5;
-n = (b-a)/h;
+a = 0;        % Lower bound
+b = 3;        % Upper bound
+h = 1.5;      % Step size
+n = (b-a)/h;  % Intervals
 
 X = zeros(n+1, 1);
 Y = zeros(n+1, 1);
-X(1) = a;
-Y(1) = 5;
+X(1) = a;  % Starting x-value
+Y(1) = 5;  % Starting y-value
 
 disp('   x               y')
 fprintf('%.6f\t%.6f\n', X(1), Y(1))
