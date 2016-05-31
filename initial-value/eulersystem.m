@@ -1,5 +1,5 @@
 % Euler's method on system of equations.
-% y'=f(x,y), where y=[y1 y2], y(a)=[y01 y02].
+% y'=f(x,y), y=[y1 y2], y(a)=[y01 y02].
 
 f = @(x,y) [y(2)^2-2*y(1);
             y(1)-y(2)-x*y(2)^2];
