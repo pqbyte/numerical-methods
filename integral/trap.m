@@ -1,21 +1,13 @@
-% Trapetzoidal rule for integral of function f(x) = 1+x².
+% Trapetzoidal rule for approximating ∫f(x)dx.
 
-tr = @(h, y) h * (sum(y) - 0.5 * (y(1) + y(end)));
 f = @(x) 1+x.^2;
 
-% True value of integral
-Itrue = 136/3;
-fprintf('True value of integral = %.6f\n', Itrue)
-fprintf('\n')
-
-a = 1;       % Lower bound
-b = 5;       % Upper bound
-n = 4;       % Segments (increase for better result)
+a = 1;       % Lower integral bound
+b = 5;       % Upper integral bound
+n = 4;       % Intervals
 h = (b-a)/n; % Step size
+X = a:h:b;   % Set of x-values
+Y = f(X);    % Set of y-values
 
-x = a:h:b;
-y = f(x);
-Iappr = tr(h, y);
-err = abs(Iappr-Itrue);
-disp('h               integral        absolute error')
-fprintf('%.6f\t%.6f\t%.6f\n', [h, Iappr, err]')
+Iappr = h*(sum(Y)-0.5*(Y(1)+Y(end)));
+fprintf('%s %.6f\n', 'Integral ≈', Iappr)
