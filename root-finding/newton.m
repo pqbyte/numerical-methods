@@ -14,8 +14,8 @@ while err > TOL && iter < MIT
   h = -f(x)/fp(x);
   x = x+h;
   err = abs(h/x);
-  fprintf('%.12f\t%.12f\t%.12f\n', x, f(x), err)
   iter = iter+1;
+  fprintf('%.12f\t%.12f\t%.12f\n', x, f(x), err)
 end
 
 if (iter == MIT)
