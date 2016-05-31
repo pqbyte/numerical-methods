@@ -21,5 +21,5 @@ end
 if (iter == MIT)
   disp('Did not converge.')
 else
-  fprintf('%s %d\n','Iterations:',iter)
+  fprintf('%s %d %s\n','Converged. Result after',iter,'iterations.')
 end
