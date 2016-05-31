@@ -1,22 +1,25 @@
-% Newton-Raphsons method.
+% Newton's method to find roots of f(x)=0.
 
 f = @(x) (x-1)^2;
 fp = @(x) 2*(x-1);
 
-TOL = 1e-10;
-err = inf;
-iter = 1;
+TOL = 1e-10; % Error limit
+MIT = 100;   % Maximum iterations
+err = inf;   % Relative error
+iter = 0;    % Current iteration
+x = 1.01;    % Starting guess
 
-% Starting guess
-x = 1.00001;
-
-disp('x               f(x)            relative error')
-while err > TOL & iter <= 20
-  dx = -f(x)/fp(x);
-  x = x+dx;
-  err = abs(dx/x);
-  fprintf('%.12f\t%.12f\t%.12f\n', [x, f(x), err])
+disp('      x              f(x)       relative error')
+while err > TOL && iter < MIT
+  h = -f(x)/fp(x);
+  x = x+h;
+  err = abs(h/x);
+  fprintf('%.12f\t%.12f\t%.12f\n', x, f(x), err)
   iter = iter+1;
 end
 
-disp(['Iterations: ' num2str(iter)])
+if (iter == MIT)
+  disp('Did not converge.')
+else
+  fprintf('%s %d\n','Iterations:',iter)
+end
