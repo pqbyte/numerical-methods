@@ -1,28 +1,19 @@
 % Euler's method on system of equations.
+% y'=f(x,y), where y=[y1 y2], y(a)=[y01 y02].
 
-f1 = @(x, y) y(2)^2-2*y(1);      % EQ1
-f2 = @(x, y) y(1)-y(2)-x*y(2)^2; % EQ2
-f =  @(x, y) [f1(x,y) f2(x,y)];  % System
+f = @(x,y) [y(2)^2-2*y(1);
+            y(1)-y(2)-x*y(2)^2];
 
-a = 0;        % Lower bound
-b = 3;        % Upper bound
-h = 0.01;     % Step size
-n = (b-a)/h;  % Intevals
+a = 0;       % Starting x-value
+b = 3;       % Target x-value
+h = 0.1;     % Step size
+n = (b-a)/h; % Intervals
+y = [1 0]';  % Starting y-values
+X = a:h:b;   % Set of x-values
 
-X = zeros(n+1, 1);
-Y = zeros(n+1, 2);
-X(1) = a;         % Starting x-value
-Y(1, :) = [1 0];  % Starting y-values
-
-disp('   x               y1              y2')
-fprintf('%.6f\t%.6f\t%.6f\n', X(1), Y(1,:))
-
-for i = 1:n
+disp('    x              y1              y2')
+for i = 1:n+1
   x = X(i);
-  y = Y(i, :);
-  Y(i+1, :) = y+h*f(x,y);
-  X(i+1) = x+h;
-  fprintf('%.6f\t%.6f\t%.6f\n', X(i+1), Y(i+1, :))
+  y = y+h*f(x,y);
+  fprintf('%.6f\t%.6f\t%.6f\n',x,y)
 end
-
-plot(X, Y);
