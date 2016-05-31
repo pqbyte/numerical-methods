@@ -10,11 +10,11 @@ y = 5;       % Starting y-value
 X = a:h:b;   % Set of x-values
 
 disp('   x               y')
-fprintf('%.6f\t%.6f\n', X(1), y)
+fprintf('%.6f\t%.6f\n',X(1),y)
 
 for i = 1:n
   x = X(i);
-  k1 = f(x, y);
+  k1 = f(x,y);
   k2 = f(x+h/2, y+h*k1/2);
   k3 = f(x+h/2, y+h*k2/2);
   k4 = f(x+h, y+h*k3);
