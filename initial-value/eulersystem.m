@@ -12,8 +12,10 @@ y = [1 0]';  % Starting y-values
 X = a:h:b;   % Set of x-values
 
 disp('    x              y1              y2')
-for i = 1:n+1
+fprintf('%.6f\t%.6f\t%.6f\n',X(1),y)
+
+for i = 1:n
   x = X(i);
   y = y+h*f(x,y);
-  fprintf('%.6f\t%.6f\t%.6f\n',x,y)
+  fprintf('%.6f\t%.6f\t%.6f\n',X(i+1),y)
 end
