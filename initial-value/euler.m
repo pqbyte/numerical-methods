@@ -13,5 +13,5 @@ disp('   x               y')
 for i = 1:n+1
   x = X(i);
   y = y+h*f(x,y);
-  fprintf('%.6f\t%.6f\n', x, y)
+  fprintf('%.6f\t%.6f\n',x,y)
 end
