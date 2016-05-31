@@ -1,19 +1,26 @@
-% Fixed point iteration to solve x²-x-1=0 => x²=x+1 => x=1+1/x.
+% Fixed point iteration to find roots of f(x)=0.
+% Example: x²-x-1=0 ⇒ x²=x+1 ⇒ x=1+1/x ⇒ g(x)=1+1/x.
 
-f = @(x) 1+1/x;
-n = 10; % Iterations
-x = zeros(n+1, 1);
+f = @(x) x^2-x-1;
+g = @(x) 1+1/x;
 
-% Starting guess
-x(1) = 2;
+TOL = 1e-10; % Error limit
+MIT = 100;   % Maximum iterations
+err = inf;   % Relative error
+iter = 0;    % Current iteration
+x = 2;       % Starting guess
 
-for i = 1:n
-  x(i+1) = f(x(i));
+disp('      x              f(x)       absolute error')
+while err > TOL && iter < MIT
+  xold = x;
+  x = g(x);
+  err = abs(x-xold);
+  iter = iter+1;
+  fprintf('%.12f\t%.12f\t%.12f\n', x, f(x), err)
 end
 
-disp('x')
-fprintf('%.12f\n', x)
-
-disp('True solution:')
-xtrue = (1+sqrt(5))/2;
-fprintf('%.12f\n', xtrue)
+if (iter == MIT)
+  disp('Did not converge.')
+else
+  fprintf('%s %d %s\n','Converged. Result after',iter,'iterations.')
+end
